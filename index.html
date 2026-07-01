@@ -642,4 +642,358 @@ searchBox.addEventListener("input",()=>{
 
 });
 
+
+    /* ===================================
+   PART 3
+=================================== */
+
+let shuffleMode = false;
+let repeatMode = false;
+
+const shuffleBtn =
+document.getElementById("shuffleBtn");
+
+const repeatBtn =
+document.getElementById("repeatBtn");
+
+const favBtn =
+document.getElementById("favBtn");
+
+/* ---------- FAVORITES ---------- */
+
+let favorites =
+JSON.parse(
+localStorage.getItem("gmusic_favorites")
+|| "[]"
+);
+
+function saveFavorites(){
+
+localStorage.setItem(
+"gmusic_favorites",
+JSON.stringify(favorites)
+);
+
+}
+
+favBtn.addEventListener("click",()=>{
+
+if(!playlist.length) return;
+
+const song =
+playlist[currentIndex];
+
+const id = song.name;
+
+if(favorites.includes(id)){
+
+favorites =
+favorites.filter(
+x=>x!==id
+);
+
+favBtn.textContent = "🤍";
+
+}else{
+
+favorites.push(id);
+
+favBtn.textContent = "❤️";
+
+}
+
+saveFavorites();
+
+});
+
+function updateFavoriteUI(){
+
+if(!playlist.length) return;
+
+const song =
+playlist[currentIndex];
+
+if(
+favorites.includes(song.name)
+){
+favBtn.textContent="❤️";
+}else{
+favBtn.textContent="🤍";
+}
+
+}
+
+/* ---------- SHUFFLE ---------- */
+
+shuffleBtn.addEventListener("click",()=>{
+
+shuffleMode =
+!shuffleMode;
+
+shuffleBtn.style.opacity =
+shuffleMode ? "1" : ".5";
+
+});
+
+shuffleBtn.style.opacity=".5";
+
+/* ---------- REPEAT ---------- */
+
+repeatBtn.addEventListener("click",()=>{
+
+repeatMode =
+!repeatMode;
+
+repeatBtn.style.opacity =
+repeatMode ? "1" : ".5";
+
+});
+
+repeatBtn.style.opacity=".5";
+
+/* ---------- SAVE SETTINGS ---------- */
+
+function saveSettings(){
+
+localStorage.setItem(
+"gmusic_settings",
+JSON.stringify({
+shuffle:shuffleMode,
+repeat:repeatMode,
+volume:audio.volume
+})
+);
+
+}
+
+function loadSettings(){
+
+const data =
+JSON.parse(
+localStorage.getItem(
+"gmusic_settings"
+)
+);
+
+if(!data) return;
+
+shuffleMode =
+data.shuffle || false;
+
+repeatMode =
+data.repeat || false;
+
+audio.volume =
+data.volume || 1;
+
+volumeSlider.value =
+audio.volume;
+
+shuffleBtn.style.opacity =
+shuffleMode ? "1" : ".5";
+
+repeatBtn.style.opacity =
+repeatMode ? "1" : ".5";
+
+}
+
+setInterval(saveSettings,1000);
+
+/* ---------- OVERRIDE NEXT ---------- */
+
+function playNextSong(){
+
+if(!playlist.length) return;
+
+if(repeatMode){
+
+loadSong(currentIndex);
+playSong();
+return;
+
+}
+
+if(shuffleMode){
+
+const randomIndex =
+Math.floor(
+Math.random() *
+playlist.length
+);
+
+loadSong(randomIndex);
+playSong();
+
+return;
+
+}
+
+currentIndex++;
+
+if(
+currentIndex >=
+playlist.length
+){
+currentIndex = 0;
+}
+
+loadSong(currentIndex);
+playSong();
+
+}
+
+/* ---------- REPLACE OLD ENDED ---------- */
+
+audio.addEventListener(
+"ended",
+playNextSong
+);
+
+/* ---------- UPDATE LOAD SONG ---------- */
+
+const originalLoadSong =
+loadSong;
+
+loadSong = function(index){
+
+originalLoadSong(index);
+
+updateFavoriteUI();
+
+};
+
+/* ---------- SAVE LAST SONG ---------- */
+
+function saveCurrentSong(){
+
+if(!playlist.length) return;
+
+localStorage.setItem(
+"gmusic_last_song",
+currentIndex
+);
+
+}
+
+audio.addEventListener(
+"timeupdate",
+saveCurrentSong
+);
+
+/* ---------- RESTORE LAST SONG ---------- */
+
+window.addEventListener(
+"load",
+()=>{
+
+loadSettings();
+
+const savedIndex =
+localStorage.getItem(
+"gmusic_last_song"
+);
+
+if(
+savedIndex !== null &&
+playlist.length
+){
+
+loadSong(
+parseInt(savedIndex)
+);
+
+}
+
+}
+);
+
+/* ---------- KEYBOARD SHORTCUTS ---------- */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(e.code==="Space"){
+
+e.preventDefault();
+
+if(isPlaying){
+pauseSong();
+}else{
+playSong();
+}
+
+}
+
+if(e.code==="ArrowRight"){
+nextBtn.click();
+}
+
+if(e.code==="ArrowLeft"){
+prevBtn.click();
+}
+
+}
+);
+
+/* ---------- MINI TOAST ---------- */
+
+function toast(text){
+
+const div =
+document.createElement("div");
+
+div.innerText = text;
+
+div.style.position="fixed";
+div.style.bottom="120px";
+div.style.left="50%";
+div.style.transform=
+"translateX(-50%)";
+
+div.style.padding=
+"12px 20px";
+
+div.style.background=
+"#1DB954";
+
+div.style.borderRadius=
+"12px";
+
+div.style.zIndex="9999";
+
+document.body.appendChild(div);
+
+setTimeout(()=>{
+div.remove();
+},2000);
+
+}
+
+shuffleBtn.onclick=()=>{
+shuffleMode=!shuffleMode;
+
+shuffleBtn.style.opacity=
+shuffleMode?"1":".5";
+
+toast(
+shuffleMode
+?"Shuffle Enabled"
+:"Shuffle Disabled"
+);
+};
+
+repeatBtn.onclick=()=>{
+repeatMode=!repeatMode;
+
+repeatBtn.style.opacity=
+repeatMode?"1":".5";
+
+toast(
+repeatMode
+?"Repeat Enabled"
+:"Repeat Disabled"
+);
+};
+    
 </script>
