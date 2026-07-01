@@ -368,3 +368,273 @@ accept="audio/*"
 class="hidden">
 
 <audio id="audio"></audio>
+
+
+  <script>
+
+const audio = document.getElementById("audio");
+const musicPicker = document.getElementById("musicPicker");
+const addMusic = document.getElementById("addMusic");
+
+const songList = document.getElementById("songList");
+
+const playBtn = document.getElementById("playBtn");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+const title = document.getElementById("title");
+const artist = document.getElementById("artist");
+const cover = document.getElementById("cover");
+
+const progressBar = document.getElementById("progressBar");
+const currentTimeText = document.getElementById("currentTime");
+const durationText = document.getElementById("duration");
+
+const volumeSlider = document.getElementById("volume");
+const searchBox = document.getElementById("searchBox");
+
+let playlist = [];
+let currentIndex = 0;
+let isPlaying = false;
+
+/* ---------- Open File Picker ---------- */
+
+addMusic.addEventListener("click", () => {
+    musicPicker.click();
+});
+
+/* ---------- Load Music Files ---------- */
+
+musicPicker.addEventListener("change", (e) => {
+
+    const files = Array.from(e.target.files);
+
+    files.forEach(file => {
+
+        const song = {
+            name: file.name.replace(/\.[^/.]+$/, ""),
+            file: file,
+            url: URL.createObjectURL(file)
+        };
+
+        playlist.push(song);
+    });
+
+    renderSongs();
+
+    if (playlist.length > 0 && audio.src === "") {
+        loadSong(0);
+    }
+
+});
+
+/* ---------- Render Playlist ---------- */
+
+function renderSongs() {
+
+    songList.innerHTML = "";
+
+    playlist.forEach((song,index)=>{
+
+        const item = document.createElement("div");
+
+        item.className = "song";
+
+        item.innerHTML = `
+            <img src="https://via.placeholder.com/300">
+            <div class="song-info">
+                <div class="song-name">${song.name}</div>
+                <div class="song-artist">Local File</div>
+            </div>
+        `;
+
+        item.addEventListener("click",()=>{
+
+            loadSong(index);
+            playSong();
+
+        });
+
+        songList.appendChild(item);
+
+    });
+
+}
+
+/* ---------- Load Song ---------- */
+
+function loadSong(index){
+
+    currentIndex = index;
+
+    const song = playlist[index];
+
+    audio.src = song.url;
+
+    title.textContent = song.name;
+    artist.textContent = "Local File";
+
+    cover.src =
+    "https://via.placeholder.com/300";
+
+}
+
+/* ---------- Play ---------- */
+
+function playSong(){
+
+    audio.play();
+
+    isPlaying = true;
+
+    playBtn.textContent = "⏸";
+
+}
+
+/* ---------- Pause ---------- */
+
+function pauseSong(){
+
+    audio.pause();
+
+    isPlaying = false;
+
+    playBtn.textContent = "▶";
+
+}
+
+/* ---------- Toggle ---------- */
+
+playBtn.addEventListener("click",()=>{
+
+    if(!playlist.length) return;
+
+    if(isPlaying){
+        pauseSong();
+    }else{
+        playSong();
+    }
+
+});
+
+/* ---------- Next ---------- */
+
+nextBtn.addEventListener("click",()=>{
+
+    if(!playlist.length) return;
+
+    currentIndex++;
+
+    if(currentIndex >= playlist.length){
+        currentIndex = 0;
+    }
+
+    loadSong(currentIndex);
+    playSong();
+
+});
+
+/* ---------- Previous ---------- */
+
+prevBtn.addEventListener("click",()=>{
+
+    if(!playlist.length) return;
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = playlist.length - 1;
+    }
+
+    loadSong(currentIndex);
+    playSong();
+
+});
+
+/* ---------- Auto Next ---------- */
+
+audio.addEventListener("ended",()=>{
+
+    currentIndex++;
+
+    if(currentIndex >= playlist.length){
+        currentIndex = 0;
+    }
+
+    loadSong(currentIndex);
+    playSong();
+
+});
+
+/* ---------- Progress ---------- */
+
+audio.addEventListener("timeupdate",()=>{
+
+    if(audio.duration){
+
+        const percent =
+        (audio.currentTime/audio.duration)*100;
+
+        progressBar.style.width =
+        percent + "%";
+
+        currentTimeText.textContent =
+        formatTime(audio.currentTime);
+
+        durationText.textContent =
+        formatTime(audio.duration);
+
+    }
+
+});
+
+/* ---------- Time Format ---------- */
+
+function formatTime(seconds){
+
+    const mins =
+    Math.floor(seconds/60);
+
+    const secs =
+    Math.floor(seconds%60);
+
+    return mins + ":" +
+    (secs < 10 ? "0"+secs : secs);
+
+}
+
+/* ---------- Volume ---------- */
+
+volumeSlider.addEventListener("input",()=>{
+
+    audio.volume =
+    volumeSlider.value;
+
+});
+
+/* ---------- Search ---------- */
+
+searchBox.addEventListener("input",()=>{
+
+    const query =
+    searchBox.value.toLowerCase();
+
+    const songs =
+    document.querySelectorAll(".song");
+
+    songs.forEach(song=>{
+
+        const text =
+        song.innerText.toLowerCase();
+
+        if(text.includes(query)){
+            song.style.display="flex";
+        }else{
+            song.style.display="none";
+        }
+
+    });
+
+});
+
+</script>
