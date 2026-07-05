@@ -7,9 +7,9 @@ playlist.push({
 renderSongs();
 loadSong(0);
 playlist.push({
-  name: "12 MANWA TU BANA MADARI",
+  name: "सखददतदखददतRadhaSwamiShabadSantoKaDeshshab",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/12%20MANWA%20TU%20BANA%20MADARI"
+  url: "https://pinknake.github.io/Globalmusic/सखददतदखददतRadhaSwamiShabadSantoKaDeshshab"
 });
 
 renderSongs();
