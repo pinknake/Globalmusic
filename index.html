@@ -401,7 +401,15 @@ const searchBox = document.getElementById("searchBox");
 let playlist = [];
 let currentIndex = 0;
 let isPlaying = false;
-
+    playlist.push({
+  name: "Test Song",
+  file: null,
+  url: "./test.mp3"
+});
+    
+renderSongs();
+loadSong(0);
+    
 /* ---------- Open File Picker ---------- */
 
 addMusic.addEventListener("click", () => {
