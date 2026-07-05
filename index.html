@@ -18,13 +18,13 @@ font-family:Inter,Arial,sans-serif;
 body{
 background:#121212;
 color:#fff;
-height:100vh;
+min-height:100vh;
 overflow:hidden;
 }
 
 .app{
 display:flex;
-height:100vh;
+height:100dvh;
 }
 
 .sidebar{
@@ -401,14 +401,6 @@ const searchBox = document.getElementById("searchBox");
 let playlist = [];
 let currentIndex = 0;
 let isPlaying = false;
-    playlist.push({
-  name: "Test Song",
-  file: null,
-  url: "./12 MANWA TU BANA MADARI"
-});
-    
-renderSongs();
-loadSong(0);
     
 /* ---------- Open File Picker ---------- */
 
@@ -1004,7 +996,16 @@ repeatMode
 );
 };
     
-</script>
+playlist.push({
+  name: "Test Song",
+  file: null,
+  url: "./12%20MANWA%20TU%20BANA%20MADARI.mp3"
+});
+
+renderSongs();
+loadSong(0);
+    
+  </script>
 
 </body>
 </html>
