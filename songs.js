@@ -17,10 +17,10 @@ loadSong(0);
 
 
 playlist.push({
-  name: "lal tamator",
+  name: "Test Song",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/test.mp3"
-    });
+  url: "./test.mp3"
+});
 
 renderSongs();
 loadSong(0);
