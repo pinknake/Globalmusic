@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Offline Audio Test</title>
+</head>
+<body>
+
+<h2>Offline MP3 Test</h2>
+
+<button id="play">Play Test Song</button>
+
+<audio id="audio" controls></audio>
+
+<script>
+const audio = document.getElementById("audio");
+
+audio.src = "./test.mp3";
+
+document.getElementById("play").onclick = () => {
+  audio.play();
+};
+
+audio.addEventListener("loadedmetadata", () => {
+  console.log("Loaded");
+});
+
+audio.addEventListener("error", (e) => {
+  console.log("Audio Error", e);
+});
+</script>
+
+  <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+</script>
+
+</body>
+</html>
