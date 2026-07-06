@@ -537,6 +537,41 @@ songList.innerHTML =
 }
 
 }
+
+    function renderPlaylists(){
+
+const container =
+document.getElementById(
+"playlistContainer"
+);
+
+if(!container) return;
+
+container.innerHTML="";
+
+userPlaylists.forEach(list=>{
+
+const div =
+document.createElement("div");
+
+div.className="song";
+
+div.innerHTML=`
+<div class="song-info">
+<div class="song-name">
+${list.name}
+</div>
+<div class="song-artist">
+${list.songs.length} Songs
+</div>
+</div>
+`;
+
+container.appendChild(div);
+
+});
+
+}
     
 
 /* ---------- Load Song ---------- */
@@ -797,7 +832,7 @@ favBtn.textContent="🤍";
 }
 
 
-    let userPlaylists =
+  let userPlaylists =
 JSON.parse(
 localStorage.getItem("gmusic_playlists")
 || "[]"
@@ -811,73 +846,7 @@ JSON.stringify(userPlaylists)
 );
 
 }
-    function renderPlaylists(){
-
-const container =
-document.getElementById(
-"playlistContainer"
-);
-
-if(!container) return;
-
-container.innerHTML="";
-
-userPlaylists.forEach(list=>{
-
-const div =
-document.createElement("div");
-
-div.className="song";
-
-div.innerHTML=`
-<div class="song-info">
-<div class="song-name">
-${list.name}
-</div>
-<div class="song-artist">
-${list.songs.length} Songs
-</div>
-</div>
-`;
-
-container.appendChild(div);
-
-});
-
-}
-
-    document.addEventListener(
-"click",
-(e)=>{
-
-if(
-e.target.id ===
-"createPlaylistBtn"
-){
-
-const name =
-prompt(
-"Playlist Name"
-);
-
-if(!name) return;
-
-userPlaylists.push({
-name:name,
-songs:[]
-});
-
-savePlaylists();
-
-renderPlaylists();
-
-}
-
-}
-);
-
-
-    
+  
 
 /* ---------- SHUFFLE ---------- */
 
@@ -1274,6 +1243,37 @@ if ("serviceWorker" in navigator) {
   });
 
 }
+
+    document.addEventListener(
+"click",
+(e)=>{
+
+if(
+e.target.id ===
+"createPlaylistBtn"
+){
+
+const name =
+prompt(
+"Playlist Name"
+);
+
+if(!name) return;
+
+userPlaylists.push({
+name:name,
+songs:[]
+});
+
+savePlaylists();
+
+renderPlaylists();
+
+}
+
+}
+);
+    
 </script>
 
 </body>
