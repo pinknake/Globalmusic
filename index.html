@@ -491,6 +491,54 @@ function renderSongs() {
 
 }
 
+    function renderFavorites(){
+
+songList.innerHTML = "";
+
+let count = 0;
+
+playlist.forEach((song,index)=>{
+
+if(favorites.includes(song.name)){
+
+count++;
+
+const item =
+document.createElement("div");
+
+item.className = "song";
+
+item.innerHTML = `
+<img src="https://via.placeholder.com/300">
+<div class="song-info">
+<div class="song-name">${song.name}</div>
+<div class="song-artist">Favorite Song</div>
+</div>
+`;
+
+item.onclick = ()=>{
+
+loadSong(index);
+playSong();
+
+};
+
+songList.appendChild(item);
+
+}
+
+});
+
+if(count===0){
+
+songList.innerHTML =
+"<div class='song'>No Favorites Yet ❤️</div>";
+
+}
+
+}
+    
+
 /* ---------- Load Song ---------- */
 
 function loadSong(index){
