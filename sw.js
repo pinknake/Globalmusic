@@ -2,10 +2,10 @@ const CACHE_NAME = "gmusic-v2";
 
 const urlsToCache = [
   "./",
-  "./index.html",
-  "./manifest.json",
-  "./test",
-  "./cover.png"
+  "https://pinknake.github.io/Globalmusic/index.html",
+  "https://pinknake.github.io/Globalmusic/manifest.json",
+  "https://pinknake.github.io/Globalmusic/test",
+  "https://pinknake.github.io/Globalmusic/cover.png"
 ];
 
 self.addEventListener("install", event => {
