@@ -1,12 +1,10 @@
-const CACHE_NAME = "gmusic-v4";
+const CACHE_NAME = "gmusic-v5";
 
 const urlsToCache = [
   "./",
   "https://pinknake.github.io/Globalmusic/index.html",
   "https://pinknake.github.io/Globalmusic/manifest.json",
-  "https://pinknake.github.io/Globalmusic/test",
-  "https://pinknake.github.io/Globalmusic/test.mp3",
-  "https://pinknake.github.io/Globalmusic/songs.js", 
+   "https://pinknake.github.io/Globalmusic/test.mp3",
   "https://pinknake.github.io/Globalmusic/cover.png"
 ];
 
