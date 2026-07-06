@@ -1020,6 +1020,57 @@ repeatMode
 :"Repeat Disabled"
 );
 };
+
+const pageTitle =
+document.getElementById("pageTitle");
+
+document
+.getElementById("allSongsBtn")
+.onclick = ()=>{
+
+pageTitle.textContent =
+"All Songs";
+
+renderSongs();
+
+};
+
+document
+.getElementById("favPageBtn")
+.onclick = ()=>{
+
+pageTitle.textContent =
+"Favorites";
+
+songList.innerHTML =
+"<div class='song'>Favorites Coming Soon</div>";
+
+};
+
+document
+.getElementById("playlistPageBtn")
+.onclick = ()=>{
+
+pageTitle.textContent =
+"Playlists";
+
+songList.innerHTML =
+"<div class='song'>Playlists Coming Soon</div>";
+
+};
+
+document
+.getElementById("albumPageBtn")
+.onclick = ()=>{
+
+pageTitle.textContent =
+"Albums";
+
+songList.innerHTML =
+"<div class='song'>Albums Coming Soon</div>";
+
+};
+
     
 playlist.push({
   name: "Test Song",
