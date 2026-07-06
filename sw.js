@@ -1,4 +1,4 @@
-const CACHE_NAME = "gmusic-v5";
+const CACHE_NAME = "gmusic-v6";
 
 const urlsToCache = [
   "./",
