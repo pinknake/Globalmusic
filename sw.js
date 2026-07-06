@@ -1,11 +1,11 @@
-const CACHE_NAME = "gmusic-v6";
+const CACHE_NAME = "gmusic-v7";
 
 const urlsToCache = [
   "./",
-  "https://pinknake.github.io/Globalmusic/index.html",
-  "https://pinknake.github.io/Globalmusic/manifest.json",
-   "https://pinknake.github.io/Globalmusic/test.mp3",
-  "https://pinknake.github.io/Globalmusic/cover.png"
+  "./index.html",
+  "./manifest.json",
+  "./test.mp3",
+  "./cover.png"
 ];
 
 self.addEventListener("install", event => {
