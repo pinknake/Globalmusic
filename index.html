@@ -394,6 +394,11 @@ class="hidden">
 
 <audio id="audio"></audio>
 
+<script>
+window.onerror = function(msg, src, line, col) {
+  alert("ERROR: " + msg + " | Line: " + line);
+};
+</script>
 
   <script>
 
@@ -1019,7 +1024,7 @@ repeatMode
 playlist.push({
   name: "Test Song",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/12%20MANWA%20TU%20BANA%20MADARI"
+  url: "./test.mp3"
 });
 
 renderSongs();
