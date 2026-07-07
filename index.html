@@ -660,6 +660,32 @@ songList.appendChild(item);
 
 }
     
+
+    function updateActiveSong(){
+
+document
+.querySelectorAll(".song")
+.forEach(el=>{
+
+el.classList.remove(
+"active-song"
+);
+
+});
+
+const cards =
+document.querySelectorAll(".song");
+
+if(cards[currentIndex]){
+
+cards[currentIndex]
+.classList.add(
+"active-song"
+);
+
+}
+
+}
     
 
 /* ---------- Load Song ---------- */
@@ -677,7 +703,7 @@ function loadSong(index){
 
     cover.src = "cover.png";
 }
-    renderSongs();
+    updateActiveSong();
 
 /* ---------- Play ---------- */
 
