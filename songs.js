@@ -1,7 +1,7 @@
 playlist.push({
-  name: "test",
+  name: "Ise Sant Ke Nyue Mile Sai Bhajan",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/test"
+  url: "https://pinknake.github.io/Globalmusic/IseSSantKKeNNyueMMileSSaiBBhajan"
     });
 
 renderSongs();
