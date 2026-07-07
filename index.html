@@ -794,6 +794,15 @@ function loadSong(index){
 
     cover.src = "cover.png";
 
+  document.getElementById("fullCover").src =
+cover.src;
+
+document.getElementById("fullTitle").textContent =
+song.name;
+
+document.getElementById("fullArtist").textContent =
+"Local File";
+
    updateActiveSong();
 }
     
@@ -1556,7 +1565,26 @@ alert(
 }
 
 });
-    
+
+    document
+.querySelector(".now-playing")
+.addEventListener("click",()=>{
+
+document
+.getElementById("fullPlayer")
+.classList.remove("hidden");
+
+});
+
+    document
+.getElementById("closePlayer")
+.addEventListener("click",()=>{
+
+document
+.getElementById("fullPlayer")
+.classList.add("hidden");
+
+});
     
 </script>
 
