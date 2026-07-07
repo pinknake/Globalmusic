@@ -33,3 +33,21 @@ playlist.push({
 
 renderSongs();
 loadSong(0);
+
+playlist.push({
+  name: "भजन Prem ki Gehri Tu Misaal Hai सरलादास Satguru Bhajan",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/भजनPremkiGehriTuMisaalHaiसरलदसSatguruBh"
+});
+
+renderSongs();
+loadSong(0);
+
+playlist.push({
+  name: "Shukrana Guru Ji Aapka Din Raat",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/ShukranaGGuruJJiAAapkaDDinRRaat"
+});
+
+renderSongs();
+loadSong(0);
