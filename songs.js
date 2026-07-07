@@ -7,7 +7,7 @@ playlist.push({
 renderSongs();
 loadSong(0);
 playlist.push({
-  name: "सखददतदखददतRadhaSwamiShabadSantoKaDeshshab",
+  name: "सुख दे दाता दुख दे दाता",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/सखददतदखददतRadhaSwamiShabadSantoKaDeshshab"
 });
