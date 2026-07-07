@@ -568,13 +568,83 @@ ${list.name}
 ${list.songs.length} Songs
 </div>
 </div>
+<button class="openPlaylistBtn">
+Open
+</button>
 `;
 
-container.appendChild(div);
+  div.querySelector(
+".openPlaylistBtn"
+).onclick = ()=>{
+
+openPlaylist(
+list.name
+);
+
+};
+  
+  container.appendChild(div);
 
 });
 
 }
+
+
+    function openPlaylist(name){
+
+pageTitle.textContent =
+name;
+
+songList.innerHTML = "";
+
+const target =
+userPlaylists.find(
+p=>p.name===name
+);
+
+if(!target) return;
+
+target.songs.forEach(songName=>{
+
+const song =
+playlist.find(
+s=>s.name===songName
+);
+
+if(!song) return;
+
+const index =
+playlist.indexOf(song);
+
+const item =
+document.createElement("div");
+
+item.className="song";
+
+item.innerHTML=`
+<div class="song-info">
+<div class="song-name">
+${song.name}
+</div>
+<div class="song-artist">
+Playlist Song
+</div>
+</div>
+`;
+
+item.onclick=()=>{
+
+loadSong(index);
+playSong();
+
+};
+
+songList.appendChild(item);
+
+});
+
+}
+    
     
 
 /* ---------- Load Song ---------- */
