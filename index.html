@@ -770,6 +770,9 @@ document.getElementById("repeatBtn");
 const favBtn =
 document.getElementById("favBtn");
 
+const addToPlaylistBtn =
+document.getElementById("addToPlaylistBtn");
+
 /* ---------- FAVORITES ---------- */
 
 let favorites =
@@ -1276,6 +1279,81 @@ renderPlaylists();
 
 }
 );
+
+    
+
+addToPlaylistBtn.addEventListener("click",()=>{
+
+if(!playlist.length) return;
+
+if(userPlaylists.length===0){
+
+alert(
+"Create a playlist first"
+);
+
+return;
+
+}
+
+const listNames =
+userPlaylists
+.map(p=>p.name)
+.join("\n");
+
+const selected =
+prompt(
+"Enter Playlist Name:\n\n" +
+listNames
+);
+
+if(!selected) return;
+
+const target =
+userPlaylists.find(
+p=>p.name===selected
+);
+
+if(!target){
+
+alert(
+"Playlist not found"
+);
+
+return;
+
+}
+
+const song =
+playlist[currentIndex];
+
+if(
+!target.songs.includes(
+song.name
+)
+){
+
+target.songs.push(
+song.name
+);
+
+savePlaylists();
+
+alert(
+"Added to " +
+target.name
+);
+
+}else{
+
+alert(
+"Song already exists"
+);
+
+}
+
+});
+    
     
 </script>
 
