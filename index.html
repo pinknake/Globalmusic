@@ -817,6 +817,10 @@ function playSong(){
 
     playBtn.textContent = "⏸";
 
+  document
+.getElementById("fullPlay")
+.textContent = "⏸";
+
 }
 
 /* ---------- Pause ---------- */
@@ -828,6 +832,10 @@ function pauseSong(){
     isPlaying = false;
 
     playBtn.textContent = "▶";
+
+  document
+.getElementById("fullPlay")
+.textContent = "▶";
 
 }
 
@@ -1585,6 +1593,30 @@ document
 .classList.add("hidden");
 
 });
+
+    document
+.getElementById("fullPlay")
+.onclick = ()=>{
+
+playBtn.click();
+
+};
+
+document
+.getElementById("fullPrev")
+.onclick = ()=>{
+
+prevBtn.click();
+
+};
+
+document
+.getElementById("fullNext")
+.onclick = ()=>{
+
+nextBtn.click();
+
+};
     
 </script>
 
