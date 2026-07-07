@@ -1707,6 +1707,26 @@ percent *
 audio.duration;
 
 });
+
+    document
+.querySelector(".full-progress")
+.addEventListener("click",(e)=>{
+
+if(!audio.duration) return;
+
+const rect =
+e.currentTarget
+.getBoundingClientRect();
+
+const percent =
+(e.clientX - rect.left) /
+rect.width;
+
+audio.currentTime =
+percent *
+audio.duration;
+
+});
     
 </script>
 
