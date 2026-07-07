@@ -302,6 +302,52 @@ cursor:pointer;
   }
   
 }
+
+.full-player{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#121212;
+z-index:99999;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.full-player img{
+width:80%;
+max-width:350px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.full-controls{
+display:flex;
+gap:30px;
+margin-top:25px;
+}
+
+.full-controls button{
+font-size:32px;
+background:none;
+border:none;
+color:white;
+}
+
+#closePlayer{
+position:absolute;
+top:20px;
+right:20px;
+font-size:28px;
+background:none;
+border:none;
+color:white;
+}
+  
 </style>
 </head>
 
@@ -433,7 +479,26 @@ multiple
 accept="audio/*"
 class="hidden">
 
-<audio id="audio"></audio>
+
+  <div id="fullPlayer" class="full-player hidden">
+
+<button id="closePlayer">✕</button>
+
+<img id="fullCover" src="cover.png">
+
+<h2 id="fullTitle">No Song</h2>
+
+<p id="fullArtist">Unknown Artist</p>
+
+<div class="full-controls">
+<button id="fullPrev">⏮</button>
+<button id="fullPlay">▶</button>
+<button id="fullNext">⏭</button>
+</div>
+
+</div>
+  
+  <audio id="audio"></audio>
 
 <script>
 window.onerror = function(msg, src, line, col) {
