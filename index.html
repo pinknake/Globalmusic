@@ -151,6 +151,11 @@ color:#b3b3b3;
 margin-top:4px;
 }
 
+  .song.active-song{
+border:2px solid #1DB954;
+box-shadow:0 0 20px rgba(29,185,84,.4);
+}
+
 .player{
 height:90px;
 background:#181818;
@@ -478,8 +483,11 @@ function renderSongs() {
 
         const item = document.createElement("div");
 
-        item.className = "song";
-
+        item.className =
+index === currentIndex
+? "song active-song"
+: "song";
+      
         item.innerHTML = `
             <img src="cover.png">
             <div class="song-info">
@@ -669,6 +677,7 @@ function loadSong(index){
 
     cover.src = "cover.png";
 }
+    renderSongs();
 
 /* ---------- Play ---------- */
 
