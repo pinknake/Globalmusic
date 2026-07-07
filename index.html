@@ -474,7 +474,7 @@ function renderSongs() {
         item.className = "song";
 
         item.innerHTML = `
-            <img src="https://via.placeholder.com/300">
+            <img src="cover.png">
             <div class="song-info">
                 <div class="song-name">${song.name}</div>
                 <div class="song-artist">Local File</div>
@@ -660,9 +660,7 @@ function loadSong(index){
     title.textContent = song.name;
     artist.textContent = "Local File";
 
-    cover.src =
-    "https://via.placeholder.com/300";
-
+    cover.src = "cover.png";
 }
 
 /* ---------- Play ---------- */
