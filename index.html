@@ -309,6 +309,29 @@ border:none;
 color:white;
 }
 
+  .full-progress-area{
+display:flex;
+align-items:center;
+gap:10px;
+width:90%;
+max-width:400px;
+margin-top:20px;
+}
+
+.full-progress{
+flex:1;
+height:6px;
+background:#444;
+border-radius:20px;
+overflow:hidden;
+}
+
+.full-progress-bar{
+height:100%;
+width:0%;
+background:#1DB954;
+}
+
 .hidden{
 display:none;
 }
@@ -490,6 +513,29 @@ class="hidden">
 
 <p id="fullArtist">Unknown Artist</p>
 
+   
+    <div class="full-progress-area">
+
+<span id="fullCurrentTime">
+0:00
+</span>
+
+<div class="full-progress">
+
+<div
+id="fullProgressBar"
+class="full-progress-bar">
+</div>
+
+</div>
+
+<span id="fullDuration">
+0:00
+</span>
+
+</div>
+    
+
 <div class="full-controls">
 <button id="fullPrev">⏮</button>
 <button id="fullPlay">▶</button>
@@ -529,6 +575,21 @@ const durationText = document.getElementById("duration");
 const volumeSlider = document.getElementById("volume");
 const searchBox = document.getElementById("searchBox");
 
+    const fullProgressBar =
+document.getElementById(
+"fullProgressBar"
+);
+
+const fullCurrentTime =
+document.getElementById(
+"fullCurrentTime"
+);
+
+const fullDuration =
+document.getElementById(
+"fullDuration"
+);
+    
 let playlist = [];
 let currentIndex = 0;
 let isPlaying = false;
@@ -920,6 +981,15 @@ audio.addEventListener("timeupdate",()=>{
         durationText.textContent =
         formatTime(audio.duration);
 
+      fullProgressBar.style.width =
+percent + "%";
+
+fullCurrentTime.textContent =
+formatTime(audio.currentTime);
+
+fullDuration.textContent =
+formatTime(audio.duration);
+      
     }
 
 });
