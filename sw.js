@@ -5,8 +5,9 @@ self.addEventListener("install", event => {
     caches.open(CACHE_NAME).then(cache =>
       cache.addAll([
         "./",
-        "./test.html",
-        "./test.mp3"
+        "https://pinknake.github.io/Globalmusic/index.html",
+        "https://pinknake.github.io/Globalmusic/manifest.json",
+        "https://pinknake.github.io/Globalmusic/test.mp3"
       ])
     )
   );
