@@ -401,6 +401,13 @@ id="searchBox">
 
 <div class="content">
 
+  <h2 class="section-title">
+Recently Played
+</h2>
+
+<div id="recentList" class="song-list">
+</div>
+
 <h2 class="section-title" id="pageTitle">
 All Songs
 </h2>
@@ -610,6 +617,11 @@ document.getElementById(
 const queueTitle =
 document.getElementById(
 "queueTitle"
+);
+
+    const recentList =
+document.getElementById(
+"recentList"
 );
     
 let playlist = [];
@@ -823,6 +835,54 @@ queueList.appendChild(item);
 });
 
 }
+
+    function renderRecentSongs(){
+
+if(!recentList) return;
+
+recentList.innerHTML = "";
+
+recentSongs.forEach(songName=>{
+
+const song =
+playlist.find(
+s=>s.name===songName
+);
+
+if(!song) return;
+
+const index =
+playlist.indexOf(song);
+
+const item =
+document.createElement("div");
+
+item.className = "song";
+
+item.innerHTML = `
+<div class="song-info">
+<div class="song-name">
+${song.name}
+</div>
+<div class="song-artist">
+Recently Played
+</div>
+</div>
+`;
+
+item.onclick = ()=>{
+
+loadSong(index);
+playSong();
+
+};
+
+recentList.appendChild(item);
+
+});
+
+}
+    
     function saveRecentSong(songName){
 
 recentSongs =
@@ -841,6 +901,8 @@ localStorage.setItem(
 JSON.stringify(recentSongs)
 );
 
+      renderRecentSongs();
+      
 }
 
     
@@ -1591,6 +1653,7 @@ playlist.length
 
 loadSong(
 parseInt(savedIndex)
+renderRecentSongs();
 );
 
 }
