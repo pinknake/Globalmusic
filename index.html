@@ -20,6 +20,31 @@ box-sizing:border-box;
 font-family:Inter,Arial,sans-serif;
 }
 
+  .home-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fill,minmax(150px,1fr));
+gap:15px;
+margin:15px 0 30px;
+}
+
+.home-card{
+background:#181818;
+padding:20px;
+border-radius:12px;
+cursor:pointer;
+transition:.2s;
+}
+
+.home-card:hover{
+background:#282828;
+}
+
+.home-section h2{
+margin-top:20px;
+margin-bottom:10px;
+}
+
 body{
 background:#121212;
 color:#fff;
@@ -382,6 +407,7 @@ cursor:pointer;
 <div class="logo">GMusic</div>
 
 <div class="menu">
+  <button id="homeBtn">🏠 Home</button>
 <button id="allSongsBtn">🎵 All Songs</button>
 <button id="favPageBtn">❤️ Favorites</button>
 <button id="playlistPageBtn">📂 Playlists</button>
@@ -568,6 +594,7 @@ window.onerror = function(msg, src, line, col) {
 
   <script>
 
+const homeBtn =document.getElementById("homeBtn");
 const audio = document.getElementById("audio");
 const musicPicker = document.getElementById("musicPicker");
 const addMusic = document.getElementById("addMusic");
@@ -633,6 +660,63 @@ localStorage.getItem(
 "gmusic_recent"
 ) || "[]"
 );
+
+ function showHome(){
+
+pageTitle.textContent =
+"Home";
+
+songList.innerHTML = `
+
+<div class="home-section">
+
+<h2>Recently Played</h2>
+
+<div class="home-grid">
+
+${recentSongs.map(song=>
+
+`<div class="home-card">
+${song}
+</div>`
+
+).join("")}
+
+</div>
+
+<h2>Albums</h2>
+
+<div class="home-grid">
+
+${albums.map(album=>
+
+`<div class="home-card">
+${album.name}
+</div>`
+
+).join("")}
+
+</div>
+
+<h2>Playlists</h2>
+
+<div class="home-grid">
+
+${userPlaylists.map(list=>
+
+`<div class="home-card">
+${list.name}
+</div>`
+
+).join("")}
+
+</div>
+
+</div>
+
+`;
+
+}
     
 /* ---------- Open File Picker ---------- */
 
@@ -2048,6 +2132,11 @@ percent *
 audio.duration;
 
 });
+
+homeBtn.addEventListener(
+"click",
+showHome
+);
   
 </script>
 
