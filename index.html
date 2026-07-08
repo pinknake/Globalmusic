@@ -45,6 +45,14 @@ margin-top:20px;
 margin-bottom:10px;
 }
 
+  .home-cover{
+width:100%;
+aspect-ratio:1;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
 body{
 background:#121212;
 color:#fff;
@@ -689,12 +697,18 @@ ${song}
 
 <div class="home-grid">
 
-${albums.map(album=>
-
-`<div class="home-card album-card"
+<div class="home-card album-card"
 data-album="${album.name}">
+
+<img
+src="${album.cover}"
+class="home-cover">
+
+<div>
 ${album.name}
-</div>`
+</div>
+
+</div>
 
 ).join("")}
 
