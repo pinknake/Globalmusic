@@ -615,6 +615,12 @@ document.getElementById(
 let playlist = [];
 let currentIndex = 0;
 let isPlaying = false;
+let recentSongs =
+JSON.parse(
+localStorage.getItem(
+"gmusic_recent"
+) || "[]"
+);
     
 /* ---------- Open File Picker ---------- */
 
@@ -817,6 +823,26 @@ queueList.appendChild(item);
 });
 
 }
+    function saveRecentSong(songName){
+
+recentSongs =
+recentSongs.filter(
+s => s !== songName
+);
+
+recentSongs.unshift(songName);
+
+if(recentSongs.length > 10){
+recentSongs.pop();
+}
+
+localStorage.setItem(
+"gmusic_recent",
+JSON.stringify(recentSongs)
+);
+
+}
+
     
     function openPlaylist(name){
 
@@ -1048,6 +1074,8 @@ function loadSong(index){
     const song = playlist[index];
 
     audio.src = song.url;
+
+  saveRecentSong(song.name);
 
     title.textContent = song.name;
     artist.textContent = "Local File";
