@@ -676,7 +676,8 @@ songList.innerHTML = `
 
 ${recentSongs.map(song=>
 
-`<div class="home-card">
+`<div class="home-card recent-card"
+data-song="${song}">
 ${song}
 </div>`
 
@@ -690,7 +691,8 @@ ${song}
 
 ${albums.map(album=>
 
-`<div class="home-card">
+`<div class="home-card album-card"
+data-album="${album.name}">
 ${album.name}
 </div>`
 
@@ -704,7 +706,8 @@ ${album.name}
 
 ${userPlaylists.map(list=>
 
-`<div class="home-card">
+`<div class="home-card playlist-card"
+data-playlist="${list.name}">
 ${list.name}
 </div>`
 
@@ -717,6 +720,57 @@ ${list.name}
 `;
 
 }
+    document
+.querySelectorAll(".album-card")
+.forEach(card=>{
+
+card.onclick=()=>{
+
+openAlbum(
+card.dataset.album
+);
+
+};
+
+});
+
+document
+.querySelectorAll(".playlist-card")
+.forEach(card=>{
+
+card.onclick=()=>{
+
+openPlaylist(
+card.dataset.playlist
+);
+
+};
+
+});
+
+document
+.querySelectorAll(".recent-card")
+.forEach(card=>{
+
+card.onclick=()=>{
+
+const song =
+playlist.find(
+s=>s.name===
+card.dataset.song
+);
+
+if(!song) return;
+
+const index =
+playlist.indexOf(song);
+
+loadSong(index);
+playSong();
+
+};
+
+});
     
 /* ---------- Open File Picker ---------- */
 
