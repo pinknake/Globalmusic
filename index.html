@@ -695,7 +695,11 @@ ${song}
 
 <h2>Albums</h2>
 
-<div class="home-card album-card"
+<div class="home-grid">
+
+${albums.map(album=>
+
+`<div class="home-card album-card"
 data-album="${album.name}">
 
 <img
@@ -706,7 +710,7 @@ class="home-cover">
 ${album.name}
 </div>
 
-</div>
+</div>`
 
 ).join("")}
 
