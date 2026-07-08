@@ -835,6 +835,45 @@ songList.appendChild(item);
 
 }
 
+    function showAlbums(){
+
+pageTitle.textContent =
+"Albums";
+
+songList.innerHTML = "";
+
+albums.forEach(album=>{
+
+const item =
+document.createElement("div");
+
+item.className = "song";
+
+item.innerHTML = `
+<img src="${album.cover}">
+<div class="song-info">
+<div class="song-name">
+${album.name}
+</div>
+<div class="song-artist">
+${album.songs.length} Songs
+</div>
+</div>
+`;
+
+item.onclick = ()=>{
+
+openAlbum(album.name);
+
+};
+
+songList.appendChild(item);
+
+});
+
+}
+    
+
 function removeSongFromPlaylist(songName){
 
 const target =
@@ -1818,6 +1857,11 @@ percent *
 audio.duration;
 
 });
+
+    albumsBtn.addEventListener(
+"click",
+showAlbums
+);
     
 </script>
 
