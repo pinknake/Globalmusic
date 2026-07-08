@@ -57,3 +57,6 @@ playlist.push({
   file: null,
   url: "https://pinknake.github.io/Globalmusic/MannLLagyoMMeroYYaarFFakiriMMein"
     });
+
+renderSongs();
+loadSong(0);
