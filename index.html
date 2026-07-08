@@ -1100,18 +1100,18 @@ toast(
     
  function updateActiveSong(){
 
-document
-.querySelectorAll(".song")
-.forEach(el=>{
+function updateActiveSong(){
 
-el.classList.remove(
+const cards =
+songList.querySelectorAll(".song");
+
+cards.forEach(card=>{
+
+card.classList.remove(
 "active-song"
 );
 
 });
-
-const cards =
-document.querySelectorAll(".song");
 
 if(cards[currentIndex]){
 
@@ -1119,6 +1119,10 @@ cards[currentIndex]
 .classList.add(
 "active-song"
 );
+
+}
+
+}
 
 }
 
@@ -1153,7 +1157,7 @@ song.name;
 document.getElementById("fullArtist").textContent =
 "Local File";
 
-   updateActiveSong();
+   // updateActiveSong();
   renderQueue();
 }
     
