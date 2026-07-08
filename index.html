@@ -799,6 +799,10 @@ ${song.name}
 Playlist Song
 </div>
 </div>
+
+<button class="removePlaylistSong">
+❌
+</button>
 `;
 
 item.onclick=()=>{
@@ -808,14 +812,52 @@ playSong();
 
 };
 
+  item.querySelector(
+".removePlaylistSong"
+).onclick=(e)=>{
+
+e.stopPropagation();
+
+removeSongFromPlaylist(
+song.name
+);
+
+};
+
 songList.appendChild(item);
 
 });
 
 }
-    
 
-    function updateActiveSong(){
+function removeSongFromPlaylist(songName){
+
+const target =
+userPlaylists.find(
+p=>p.name===
+window.currentPlaylistName
+);
+
+if(!target) return;
+
+target.songs =
+target.songs.filter(
+s=>s!==songName
+);
+
+savePlaylists();
+
+openPlaylist(
+window.currentPlaylistName
+);
+
+toast(
+"Song Removed"
+);
+
+}
+    
+ function updateActiveSong(){
 
 document
 .querySelectorAll(".song")
