@@ -873,7 +873,62 @@ songList.appendChild(item);
 
 }
     
+function openAlbum(name){
 
+pageTitle.textContent =
+name;
+
+songList.innerHTML = "";
+
+const target =
+albums.find(
+a=>a.name===name
+);
+
+if(!target) return;
+
+target.songs.forEach(songName=>{
+
+const song =
+playlist.find(
+s=>s.name===songName
+);
+
+if(!song) return;
+
+const index =
+playlist.indexOf(song);
+
+const item =
+document.createElement("div");
+
+item.className="song";
+
+item.innerHTML=`
+<img src="${target.cover}">
+<div class="song-info">
+<div class="song-name">
+${song.name}
+</div>
+<div class="song-artist">
+Album Song
+</div>
+</div>
+`;
+
+item.onclick=()=>{
+
+loadSong(index);
+playSong();
+
+};
+
+songList.appendChild(item);
+
+});
+
+}
+    
 function removeSongFromPlaylist(songName){
 
 const target =
