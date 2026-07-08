@@ -1178,6 +1178,31 @@ localStorage.getItem("gmusic_playlists")
 || "[]"
 );
 
+    /* DEMO PLAYLISTS */
+
+if(userPlaylists.length === 0){
+
+userPlaylists = [
+
+{
+name:"Top Hits",
+songs:["Test Song"]
+},
+
+{
+name:"Favorites Mix",
+songs:["Shukrana GuruJJi Aapka Din Raat"]
+}
+
+];
+
+localStorage.setItem(
+"gmusic_playlists",
+JSON.stringify(userPlaylists)
+);
+
+}
+
 function savePlaylists(){
 
 localStorage.setItem(
