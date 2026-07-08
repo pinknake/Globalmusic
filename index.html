@@ -589,6 +589,11 @@ const fullDuration =
 document.getElementById(
 "fullDuration"
 );
+
+    const albumsBtn =
+document.getElementById(
+"albumsBtn"
+);
     
 let playlist = [];
 let currentIndex = 0;
@@ -1177,6 +1182,23 @@ JSON.parse(
 localStorage.getItem("gmusic_playlists")
 || "[]"
 );
+
+    let albums = [
+
+{
+name:"Hindi Hits",
+cover:"cover.png",
+songs:["Test Song"]
+},
+
+{
+name:"My Favorites",
+cover:"cover.png",
+songs:["Test Song"]
+}
+
+];
+    
 
     /* DEMO PLAYLISTS */
 
