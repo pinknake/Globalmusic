@@ -899,13 +899,11 @@ recentSongs.pop();
 localStorage.setItem(
 "gmusic_recent",
 JSON.stringify(recentSongs)
+  
 );
-
-      renderRecentSongs();
       
 }
-
-    
+ 
     function openPlaylist(name){
 
       window.currentPlaylistName = name;
@@ -1138,6 +1136,8 @@ function loadSong(index){
     audio.src = song.url;
 
   saveRecentSong(song.name);
+
+   renderRecentSongs();
 
     title.textContent = song.name;
     artist.textContent = "Local File";
