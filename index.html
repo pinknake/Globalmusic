@@ -1098,8 +1098,6 @@ toast(
 
 }
     
- function updateActiveSong(){
-
 function updateActiveSong(){
 
 const cards =
@@ -1119,8 +1117,6 @@ cards[currentIndex]
 .classList.add(
 "active-song"
 );
-
-}
 
 }
 
@@ -1157,6 +1153,7 @@ document.getElementById("fullArtist").textContent =
 
   updateActiveSong();
   renderQueue();
+  setTimeout(updateActiveSong, 50);
 }
     
 
