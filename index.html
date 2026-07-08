@@ -688,7 +688,7 @@ ${recentSongs.map(song=>
 data-song="${song}">
 
 <img
-src="cover.png"
+src="cover01.jpg"
 class="home-cover">
 
 <div>
@@ -734,7 +734,7 @@ ${userPlaylists.map(list=>
 data-playlist="${list.name}">
 
 <img
-src="cover.png"
+src="cover.jpg"
 class="home-cover">
 
 <div>
@@ -852,7 +852,7 @@ index === currentIndex
 : "song";
       
         item.innerHTML = `
-            <img src="cover.png">
+            <img src="cover01.jpg">
             <div class="song-info">
                 <div class="song-name">${song.name}</div>
                 <div class="song-artist">Local File</div>
@@ -890,7 +890,7 @@ document.createElement("div");
 item.className = "song";
 
 item.innerHTML = `
-<img src="https://via.placeholder.com/300">
+<img src="cover.jpg">
 <div class="song-info">
 <div class="song-name">${song.name}</div>
 <div class="song-artist">Favorite Song</div>
