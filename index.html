@@ -408,6 +408,13 @@ All Songs
 <div class="song-list" id="songList">
 
 </div>
+  
+  <h2 id="queueTitle" class="section-title">
+Up Next
+</h2>
+
+<div id="queueList" class="song-list">
+</div>
 
 </div>
 
@@ -594,6 +601,16 @@ document.getElementById(
 document.getElementById(
 "albumsBtn"
 );
+
+    const queueList =
+document.getElementById(
+"queueList"
+);
+
+const queueTitle =
+document.getElementById(
+"queueTitle"
+);
     
 let playlist = [];
 let currentIndex = 0;
@@ -761,7 +778,46 @@ list.name
 
 }
 
+function renderQueue(){
 
+queueList.innerHTML = "";
+
+playlist.forEach((song,index)=>{
+
+if(index <= currentIndex)
+return;
+
+const item =
+document.createElement("div");
+
+item.className = "song";
+
+item.innerHTML = `
+<div class="song-info">
+<div class="song-name">
+${song.name}
+</div>
+<div class="song-artist">
+Up Next
+</div>
+</div>
+`;
+
+item.onclick = ()=>{
+
+loadSong(index);
+playSong();
+
+renderQueue();
+
+};
+
+queueList.appendChild(item);
+
+});
+
+}
+    
     function openPlaylist(name){
 
       window.currentPlaylistName = name;
@@ -1008,6 +1064,7 @@ document.getElementById("fullArtist").textContent =
 "Local File";
 
    updateActiveSong();
+  renderQueue();
 }
     
 
