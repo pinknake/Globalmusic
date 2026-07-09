@@ -1014,7 +1014,7 @@ item.innerHTML = `
 ${song.name}
 </div>
 <div class="song-artist">
-Up Next
+${song.duration || ""}
 </div>
 </div>
 `;
@@ -2021,7 +2021,8 @@ renderPlaylists();
 playlist.push({
   name: "Test Song",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/test.mp3"
+  url: "https://pinknake.github.io/Globalmusic/test.mp3",
+  duration:"04:07"
 });
 
 renderSongs();
