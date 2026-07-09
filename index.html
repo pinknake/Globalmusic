@@ -541,6 +541,9 @@ id="progressBar">
 </div>
 
 <div class="volume">
+  <button id="muteBtn">
+🔊
+</button>
 <input
 type="range"
 id="volume"
@@ -643,6 +646,11 @@ const durationText = document.getElementById("duration");
 const volumeSlider = document.getElementById("volume");
 const searchBox = document.getElementById("searchBox");
 
+    const muteBtn =
+document.getElementById(
+"muteBtn"
+);
+
     const fullProgressBar =
 document.getElementById(
 "fullProgressBar"
@@ -688,6 +696,38 @@ localStorage.getItem(
 ) || "[]"
 );
 
+    let lastVolume = 1;
+
+muteBtn.addEventListener(
+"click",
+()=>{
+
+if(audio.volume > 0){
+
+lastVolume =
+audio.volume;
+
+audio.volume = 0;
+
+volumeSlider.value = 0;
+
+muteBtn.textContent = "🔇";
+
+}else{
+
+audio.volume =
+lastVolume;
+
+volumeSlider.value =
+lastVolume;
+
+muteBtn.textContent = "🔊";
+
+}
+
+});
+
+    
  function showHome(){
 
 pageTitle.textContent =
@@ -1518,10 +1558,17 @@ function formatTime(seconds){
 
 /* ---------- Volume ---------- */
 
-volumeSlider.addEventListener("input",()=>{
+volumeSlider.addEventListener(
+"input",
+()=>{
 
-    audio.volume =
-    volumeSlider.value;
+audio.volume =
+volumeSlider.value;
+
+muteBtn.textContent =
+audio.volume == 0
+? "🔇"
+: "🔊";
 
 });
 
