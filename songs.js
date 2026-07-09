@@ -55,7 +55,7 @@ loadSong(0);
 playlist.push({
   name: "Mann Lagyo Mero Yaar Fakiri Mein",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/MannLLagyoMMeroYYaarFFakiriMMein"
+  url: "https://drive.google.com/file/d/1rEghnNnNdToKpGsTtMaDnXV1VDyTcRVR/view?usp=drivesdk"
     });
 
 renderSongs();
