@@ -517,6 +517,7 @@ Install App
   <button id="addToPlaylistBtn">
 📂+
 </button>
+  <button id="lyricsBtn">📝</button>
   
 
 </div>
@@ -646,6 +647,11 @@ const durationText = document.getElementById("duration");
 const volumeSlider = document.getElementById("volume");
 const searchBox = document.getElementById("searchBox");
 
+    const lyricsBtn =
+document.getElementById(
+"lyricsBtn"
+);
+
     const muteBtn =
 document.getElementById(
 "muteBtn"
@@ -727,6 +733,19 @@ muteBtn.textContent = "🔊";
 
 });
 
+    lyricsBtn.onclick = ()=>{
+
+if(!playlist.length) return;
+
+const song =
+playlist[currentIndex];
+
+alert(
+song.lyrics ||
+"No lyrics available"
+);
+
+};
     
  function showHome(){
 
@@ -2069,7 +2088,8 @@ playlist.push({
   name: "Test Song",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/test.mp3",
-  duration:"04:07"
+  duration:"04:07",
+  lyrics:"Demo lyrics for Test Song"
 });
 
 renderSongs();
