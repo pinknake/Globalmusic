@@ -401,8 +401,10 @@ border:none;
 border-radius:10px;
 cursor:pointer;
   }
+  
+}
 
-    @keyframes spinCover{
+@keyframes spinCover{
 
 from{
 transform:rotate(0deg);
@@ -419,8 +421,6 @@ transform:rotate(360deg);
 animation:
 spinCover 12s linear infinite;
 
-}
-  
 }
 
 </style>
@@ -880,7 +880,9 @@ song.cover || 'cover.png'
 }">
             <div class="song-info">
                 <div class="song-name">${song.name}</div>
-                <div class="song-artist">Local File</div>
+                <div class="song-artist">
+${song.duration || "Unknown"}
+</div>
             </div>
         `;
 
@@ -918,7 +920,7 @@ item.innerHTML = `
 <img src="cover.jpg">
 <div class="song-info">
 <div class="song-name">${song.name}</div>
-<div class="song-artist">Favorite Song</div>
+<div class="song-artist">Favorites</div>
 </div>
 `;
 
@@ -1061,7 +1063,7 @@ item.innerHTML = `
 ${song.name}
 </div>
 <div class="song-artist">
-Recently Played
+${song.duration || ""}
 </div>
 </div>
 `;
@@ -1139,7 +1141,7 @@ item.innerHTML=`
 ${song.name}
 </div>
 <div class="song-artist">
-Playlist Song
+${song.duration || ""}
 </div>
 </div>
 
