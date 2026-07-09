@@ -518,7 +518,7 @@ Install App
 📂+
 </button>
   <button id="lyricsBtn">📝</button>
-  
+  <button id="sleepBtn">⏰</button>
 
 </div>
 
@@ -652,6 +652,11 @@ document.getElementById(
 "lyricsBtn"
 );
 
+    const sleepBtn =
+document.getElementById(
+"sleepBtn"
+);
+
     const muteBtn =
 document.getElementById(
 "muteBtn"
@@ -732,6 +737,36 @@ muteBtn.textContent = "🔊";
 }
 
 });
+
+    let sleepTimer = null;
+
+sleepBtn.onclick = ()=>{
+
+const mins = prompt(
+"Sleep Timer (minutes)\n15, 30, 60"
+);
+
+if(!mins) return;
+
+clearTimeout(sleepTimer);
+
+sleepTimer =
+setTimeout(()=>{
+
+audio.pause();
+
+toast(
+"Sleep Timer Ended"
+);
+
+}, mins * 60 * 1000);
+
+toast(
+"Timer Set: " +
+mins + " min"
+);
+
+};
 
     lyricsBtn.onclick = ()=>{
 
