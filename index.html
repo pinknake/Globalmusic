@@ -365,6 +365,25 @@ width:0%;
 background:#1DB954;
 }
 
+  @keyframes spinCover{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+.cover-rotate{
+
+animation:
+spinCover 12s linear infinite;
+
+}
+
 .hidden{
 display:none;
 }
@@ -1344,9 +1363,19 @@ function playSong(){
 
     playBtn.textContent = "⏸";
 
+  cover.classList.add(
+"cover-rotate"
+);
+
   document
 .getElementById("fullPlay")
 .textContent = "⏸";
+
+  document
+.getElementById("fullCover")
+.classList.add(
+"cover-rotate"
+);
 
 }
 
@@ -1360,9 +1389,19 @@ function pauseSong(){
 
     playBtn.textContent = "▶";
 
+  cover.classList.remove(
+"cover-rotate"
+);
+
   document
 .getElementById("fullPlay")
 .textContent = "▶";
+
+  document
+.getElementById("fullCover")
+.classList.remove(
+"cover-rotate"
+);
 
 }
 
