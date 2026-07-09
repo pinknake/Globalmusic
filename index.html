@@ -688,7 +688,11 @@ ${recentSongs.map(song=>
 data-song="${song}">
 
 <img
-src="cover01.jpg"
+src="${
+playlist.find(
+s=>s.name===song
+)?.cover || 'cover.png'
+}"
 class="home-cover">
 
 <div>
@@ -852,7 +856,9 @@ index === currentIndex
 : "song";
       
         item.innerHTML = `
-            <img src="cover01.jpg">
+            <img src="${
+song.cover || 'cover.png'
+}">
             <div class="song-info">
                 <div class="song-name">${song.name}</div>
                 <div class="song-artist">Local File</div>
@@ -1311,8 +1317,9 @@ function loadSong(index){
     title.textContent = song.name;
     artist.textContent = "Local File";
 
-    cover.src = "cover01.jpg";
-
+    cover.src =
+song.cover || "cover.png";
+  
   document.getElementById("fullCover").src =
 cover.src;
 
