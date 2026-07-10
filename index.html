@@ -2523,6 +2523,16 @@ document.getElementById(
   
   pageTitle.textContent =
 "Playlists";
+
+    songList.innerHTML = `
+<div class="song">
+<button id="createPlaylistBtn">
+➕ Create Playlist
+</button>
+</div>
+
+<div id="playlistContainer"></div>
+`;
   
   renderPlaylists();
     }
