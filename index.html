@@ -29,11 +29,15 @@ margin:15px 0 30px;
 }
 
 .home-card{
-background:#181818;
+background:rgba(255,255,255,.05);
 padding:20px;
-border-radius:12px;
+border-radius:16px;
 cursor:pointer;
-transition:.2s;
+transition:.25s;
+}
+
+  .home-card:active{
+transform:scale(.97);
 }
 
 .home-card:hover{
@@ -51,13 +55,16 @@ aspect-ratio:1;
 object-fit:cover;
 border-radius:10px;
 margin-bottom:10px;
+    box-shadow:
+0 8px 20px rgba(0,0,0,.35);
 }
 
-
+body
 background:#121212;
 color:#fff;
 min-height:100vh;
 overflow:hidden;
+padding-bottom:90px;
 }
 
 .app{
@@ -113,6 +120,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:#181818;
+  backdrop-filter:blur(20px);
 }
 
 .search{
@@ -144,9 +152,9 @@ gap:20px;
 }
 
 .song{
-background:#181818;
+background:rgba(255,255,255,.04);
 padding:15px;
-border-radius:16px;
+border-radius:18px;
 cursor:pointer;
 transition:.3s;
 display:flex;
