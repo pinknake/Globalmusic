@@ -53,52 +53,7 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
-  #bottomNav{
 
-position:fixed;
-
-bottom:0;
-
-left:0;
-
-width:100%;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:12px;
-
-background:
-rgba(18,18,18,.75);
-    
-    backdrop-filter:blur(20px);
-
- -webkit-backdrop-filter:blur(20px);
-
-background:#111;
-
-border-top:1px solid #222;
-
-z-index:999;
-
-}
-
-#bottomNav button{
-
-background:none;
-
-border:none;
-
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-}
-
-body{
 background:#121212;
 color:#fff;
 min-height:100vh;
@@ -422,6 +377,55 @@ width:0%;
 background:#1DB954;
 }
 
+  #bottomNav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:12px;
+
+background:
+rgba(18,18,18,.75);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border-top:1px solid #222;
+
+z-index:999;
+
+}
+
+#bottomNav button{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+}
+
+  .nav-active{
+color:#1DB954 !important;
+transform:scale(1.1);
+}
+
+
   .equalizer{
 display:flex;
 gap:4px;
@@ -523,11 +527,6 @@ transform:rotate(360deg);
 animation:
 spinCover 12s linear infinite;
 
-}
-
-  .nav-active{
-color:#1DB954 !important;
-transform:scale(1.1);
 }
 
 </style>
@@ -2131,6 +2130,10 @@ parseInt(savedIndex)
 );  
   
 }
+
+  setActiveNav("navHome");
+
+showHome();
   
 }
 );
@@ -2601,10 +2604,6 @@ document.getElementById(
   
   renderPlaylists();
     }
-
-    setActiveNav(
-"navHome"
-);
   
 </script>
 
