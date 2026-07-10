@@ -2508,11 +2508,24 @@ renderSongs();
 
 document.getElementById(
 "navFav"
-).onclick = showFavorites;
+).onclick =  ()=>{
+ 
+  pageTitle.textContent =
+"Favorites";
+
+renderFavorites();
+
+    }
 
 document.getElementById(
 "navLibrary"
-).onclick = showPlaylists;
+).onclick =  ()=>{ 
+  
+  pageTitle.textContent =
+"Playlists";
+  
+  renderPlaylists();
+    }
   
 </script>
 
