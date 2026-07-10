@@ -222,7 +222,10 @@ backdrop-filter:
 blur(20px);
 
   
-border-top:1px solid #333;
+border-top:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 -10px 30px rgba(0,0,0,.25);
 }
 
 .now-playing{
@@ -242,6 +245,8 @@ width:75px;
 height:75px;
 border-radius:12px;
 object-fit:cover;
+  box-shadow:
+0 8px 20px rgba(0,0,0,.35);
 }
 
   #playBtn{
@@ -252,6 +257,8 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
+    box-shadow:
+0 0 20px rgba(29,185,84,.45);
 }
   
 .controls{
@@ -421,12 +428,6 @@ cursor:pointer;
 
 }
 
-  body{
-
-padding-bottom:90px;
-
-}
-
   #songList{
 
 padding-bottom:120px;
@@ -498,6 +499,11 @@ display:none;
 
 .search{
 width:180px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+  .search:focus{
+border-color:#1DB954;
 }
 
 .player{
@@ -542,6 +548,15 @@ spinCover 12s linear infinite;
 
 }
 
+  .section-title,
+.home-section h2{
+
+font-weight:700;
+
+letter-spacing:.3px;
+
+}
+  
 </style>
 </head>
 
