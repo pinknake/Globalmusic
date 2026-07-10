@@ -365,6 +365,50 @@ width:0%;
 background:#1DB954;
 }
 
+  .equalizer{
+display:flex;
+gap:4px;
+height:20px;
+align-items:flex-end;
+}
+
+.equalizer span{
+width:4px;
+height:8px;
+background:#1DB954;
+border-radius:2px;
+animation:eq 1s infinite ease-in-out;
+}
+
+.equalizer span:nth-child(2){
+animation-delay:.2s;
+}
+
+.equalizer span:nth-child(3){
+animation-delay:.4s;
+}
+
+.equalizer span:nth-child(4){
+animation-delay:.6s;
+}
+
+@keyframes eq{
+
+0%{
+height:5px;
+}
+
+50%{
+height:20px;
+}
+
+100%{
+height:5px;
+}
+
+}
+  
+
 .hidden{
 display:none;
 }
@@ -403,6 +447,8 @@ cursor:pointer;
   }
   
 }
+
+  
 
 @keyframes spinCover{
 
@@ -485,6 +531,12 @@ Up Next
 <img
 id="cover"
 src="https://via.placeholder.com/300">
+  <div id="equalizer" class="equalizer">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
 <div>
 <div id="title">No Song</div>
@@ -1473,6 +1525,10 @@ function playSong(){
 "cover-rotate"
 );
 
+  document.getElementById(
+"equalizer"
+).style.display="flex";
+
 }
 
 /* ---------- Pause ---------- */
@@ -1498,6 +1554,10 @@ function pauseSong(){
 .classList.remove(
 "cover-rotate"
 );
+
+  document.getElementById(
+"equalizer"
+).style.display="none";
 
 }
 
@@ -2370,6 +2430,10 @@ percent *
 audio.duration;
 
 });
+  
+    document.getElementById(
+"equalizer"
+).style.display="none";
 
 homeBtn.addEventListener(
 "click",
