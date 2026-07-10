@@ -393,6 +393,25 @@ width:0%;
 background:#1DB954;
 }
 
+  .full-extra-controls{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+
+}
+
+.full-extra-controls button{
+
+font-size:24px;
+background:none;
+border:none;
+color:white;
+
+}
+
 #bottomNav{
 
 position:fixed;
@@ -483,6 +502,8 @@ height:5px;
 }
 
 }
+
+  
   
 .hidden{
 display:none;
@@ -490,6 +511,17 @@ display:none;
 
 @media(max-width:768px){
 
+  #favBtn,
+#shuffleBtn,
+#repeatBtn,
+#lyricsBtn,
+#sleepBtn,
+#muteBtn{
+
+display:none;
+
+}
+  
 .controls{
 gap:8px;
 flex-wrap:wrap;
@@ -764,6 +796,22 @@ class="full-progress-bar">
 <button id="fullNext">⏭</button>
 </div>
 
+    <div class="full-extra-controls">
+
+<button id="fullFavBtn">❤️</button>
+
+<button id="fullShuffleBtn">🔀</button>
+
+<button id="fullRepeatBtn">🔁</button>
+
+<button id="fullLyricsBtn">📝</button>
+
+<button id="fullSleepBtn">⏰</button>
+
+<button id="fullMuteBtn">🔊</button>
+
+</div>
+    
 </div>
 
   <div id="bottomNav">
