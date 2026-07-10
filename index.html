@@ -69,6 +69,13 @@ justify-content:space-around;
 
 padding:12px;
 
+background:
+rgba(18,18,18,.75);
+    
+    backdrop-filter:blur(20px);
+
+ -webkit-backdrop-filter:blur(20px);
+
 background:#111;
 
 border-top:1px solid #222;
@@ -245,6 +252,13 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:15px 20px;
+  background:
+rgba(25,25,25,.7);
+
+backdrop-filter:
+blur(20px);
+
+  
 border-top:1px solid #333;
 }
 
@@ -253,6 +267,11 @@ display:flex;
 align-items:center;
 gap:12px;
 width:300px;
+  background:
+rgba(25,25,25,.7);
+
+backdrop-filter:
+blur(20px);
 }
 
 .now-playing img{
@@ -506,6 +525,13 @@ animation:
 spinCover 12s linear infinite;
 
 }
+
+  .nav-active{
+color:#1DB954 !important;
+transform:scale(1.1);
+}
+
+  
 
 </style>
 </head>
@@ -1516,6 +1542,28 @@ cards[currentIndex]
 }
 
 }
+
+    function setActiveNav(id){
+
+document
+.querySelectorAll(
+"#bottomNav button"
+)
+.forEach(btn=>{
+
+btn.classList.remove(
+"nav-active"
+);
+
+});
+
+document
+.getElementById(id)
+.classList.add(
+"nav-active"
+);
+
+}
     
 
 /* ---------- Load Song ---------- */
@@ -2493,12 +2541,24 @@ showHome
 
  document.getElementById(
 "navHome"
-).onclick = showHome;
+).onclick = ()=>{
+   
+   setActiveNav(
+     "navHome"
+     );
+   
+   showHome;
 
+    }
+   
 document.getElementById(
 "navSongs"
 ).onclick = ()=>{
 
+  setActiveNav(
+"navSongs"
+    );
+  
 pageTitle.textContent =
 "All Songs";
 
@@ -2509,6 +2569,10 @@ renderSongs();
 document.getElementById(
 "navFav"
 ).onclick =  ()=>{
+
+  setActiveNav(
+    "navFav"
+    );
  
   pageTitle.textContent =
 "Favorites";
@@ -2520,6 +2584,10 @@ renderFavorites();
 document.getElementById(
 "navLibrary"
 ).onclick =  ()=>{ 
+
+  setActiveNav(
+    "navLibrary"
+    );
   
   pageTitle.textContent =
 "Playlists";
