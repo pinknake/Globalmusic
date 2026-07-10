@@ -1576,6 +1576,10 @@ function loadSong(index){
 
     audio.src = song.url;
 
+  setActiveNav(
+"navHome"
+);
+
   saveRecentSong(song.name);
 
    renderRecentSongs();
