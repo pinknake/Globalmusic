@@ -53,6 +53,44 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
+  #bottomNav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:12px;
+
+background:#111;
+
+border-top:1px solid #222;
+
+z-index:999;
+
+}
+
+#bottomNav button{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+}
+
 body{
 background:#121212;
 color:#fff;
@@ -666,6 +704,18 @@ class="full-progress-bar">
 </div>
 
 </div>
+
+  <div id="bottomNav">
+
+<button id="navHome">🏠</button>
+
+<button id="navSongs">🎵</button>
+
+<button id="navFav">❤️</button>
+
+<button id="navLibrary">📚</button>
+
+</div>
   
   <audio id="audio"></audio>
 
@@ -699,7 +749,8 @@ const durationText = document.getElementById("duration");
 const volumeSlider = document.getElementById("volume");
 const searchBox = document.getElementById("searchBox");
 
-    const lyricsBtn =
+   
+  const lyricsBtn =
 document.getElementById(
 "lyricsBtn"
 );
@@ -748,7 +799,7 @@ document.getElementById(
 document.getElementById(
 "recentList"
 );
-    
+   
 let playlist = [];
 let currentIndex = 0;
 let isPlaying = false;
@@ -2439,6 +2490,29 @@ homeBtn.addEventListener(
 "click",
 showHome
 );
+
+ document.getElementById(
+"navHome"
+).onclick = showHome;
+
+document.getElementById(
+"navSongs"
+).onclick = ()=>{
+
+pageTitle.textContent =
+"All Songs";
+
+renderSongs();
+
+};
+
+document.getElementById(
+"navFav"
+).onclick = showFavorites;
+
+document.getElementById(
+"navLibrary"
+).onclick = showPlaylists;
   
 </script>
 
