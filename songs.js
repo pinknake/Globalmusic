@@ -84,6 +84,9 @@ playlist.push({
   duration:"05:33"
 });
 
+renderSongs();
+loadSong(0);
+
 
 
 playlist.push({
@@ -94,7 +97,8 @@ playlist.push({
   duration:"05:33"
 });
 
-
+renderSongs();
+loadSong(0);
 
 playlist.push({
   name: "SurtaBhoolBhramDeTyaagSatgu",
@@ -103,3 +107,6 @@ playlist.push({
   cover:"radhaswamiji01.jpg",
   duration:"05:33"
 });
+
+renderSongs();
+loadSong(0);
