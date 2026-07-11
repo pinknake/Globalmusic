@@ -75,3 +75,31 @@ playlist.push({
 
 renderSongs();
 loadSong(0);
+
+playlist.push({
+  name: "अरदससतगर2023RadhaSwamiDinodShabadPaawanCha",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/अरदससतगर2023RadhaSwamiDinodShabadPaawanCha.mp3",
+  cover:"radhaswamiji01.jpg",
+  duration:"05:33"
+});
+
+
+
+playlist.push({
+  name: "सतगरमहमशबद",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/सतगरमहमशबद.mp3",
+  cover:"radhaswamiji01.jpg",
+  duration:"05:33"
+});
+
+
+
+playlist.push({
+  name: "SurtaBhoolBhramDeTyaagSatgu",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/SurtaBhoolBhramDeTyaagSatgu.mp3",
+  cover:"radhaswamiji01.jpg",
+  duration:"05:33"
+});
