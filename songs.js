@@ -12,7 +12,7 @@ loadSong(0);
 playlist.push({
   name: "सुख दे दाता दुख दे दाता",
   file: null,
-  url: "https://pinknake.github.io/Globalmusic/सखददतदखददतRadhaSwamiShabadSantoKaDeshshab.mp3",
+  url: "https://pinknake.github.io/Globalmusic/सखददतदखददत.mp3",
 cover:"radhaswamiji02.jpg",
   duration:"07:49"
 });
