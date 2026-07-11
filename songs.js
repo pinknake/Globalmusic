@@ -110,3 +110,15 @@ playlist.push({
 
 renderSongs();
 loadSong(0);
+
+playlist.push({
+  name: "रधसवमशबद2023सरतकरसतसगसननबसतपचमआयर",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/रधसवमशबद2023सरतकरसतसगसननबसतपचमआयर.mp3",
+  cover:"radhaswamiji01.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
+
