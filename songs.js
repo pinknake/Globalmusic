@@ -80,7 +80,7 @@ playlist.push({
   name: "अरदससतगर2023RadhaSwamiDinodShabadPaawanCha",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/अरदससतगर2023RadhaSwamiDinodShabadPaawanCha.mp3",
-  cover:"radhaswamiji01.jpg",
+  cover:"radhaswamiji03.jpg",
   duration:"05:33"
 });
 
@@ -93,7 +93,7 @@ playlist.push({
   name: "सतगरमहमशबद",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/सतगरमहमशबद.mp3",
-  cover:"radhaswamiji01.jpg",
+  cover:"radhaswamiji04.jpg",
   duration:"05:33"
 });
 
@@ -104,7 +104,7 @@ playlist.push({
   name: "SurtaBhoolBhramDeTyaagSatgu",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/SurtaBhoolBhramDeTyaagSatgu.mp3",
-  cover:"radhaswamiji01.jpg",
+  cover:"radhaswamiji05.jpg",
   duration:"05:33"
 });
 
@@ -115,10 +115,66 @@ playlist.push({
   name: "रधसवमशबद2023सरतकरसतसगसननबसतपचमआयर",
   file: null,
   url: "https://pinknake.github.io/Globalmusic/रधसवमशबद2023सरतकरसतसगसननबसतपचमआयर.mp3",
-  cover:"radhaswamiji01.jpg",
+  cover:"radhaswamiji06.jpg",
   duration:"05:33"
 });
 
 renderSongs();
 loadSong(0);
 
+
+playlist.push({
+  name: "Satguru Dekhu Baat Teri",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/SatguruDDekhuBBaatTTeri.mp3",
+  cover:"radhaswamiji07.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
+
+
+playlist.push({
+  name: "YedduniyakkerrrahiyyaadSSatguru.mp3",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/YedduniyakkerrrahiyyaadSSatguru.mp3",
+  cover:"radhaswamiji08.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
+
+playlist.push({
+  name: "KarmawaloHoMatwaloJapLoNij.mp3",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/KarmawaloHoMatwaloJapLoNij.mp3",
+  cover:"radhaswamiji09.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
+
+playlist.push({
+  name: "NayeSSaalKKiNNaiSSubahMMeinmp3",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/NayeSSaalKKiNNaiSSubahMMeinmp3",
+  cover:"radhaswamiji03.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
+
+playlist.push({
+  name: "DANKA.mp3",
+  file: null,
+  url: "https://pinknake.github.io/Globalmusic/DANKA.mp3",
+  cover:"radhaswamiji05.jpg",
+  duration:"05:33"
+});
+
+renderSongs();
+loadSong(0);
